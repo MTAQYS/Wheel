@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Roue",
+    "description": "Tirez un nom au sort. La roue tourne dans votre navigateur, sans compte et sans envoi de données."
+  },
+  "header": {
+    "title": "Roue",
+    "tagline": "Un nom au sort, tiré dans votre navigateur."
+  },
+  "lang": {
+    "group": "Langue",
+    "fr": "FR",
+    "en": "EN"
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "switchToLight": "Passer au thème clair",
+    "switchToDark": "Passer au thème sombre"
+  },
+  "names": {
+    "label": "Noms",
+    "placeholder": "Un nom par ligne",
+    "hint": "TXT : un nom par ligne. CSV : une colonne, ou des valeurs séparées par des virgules ou des points-virgules.",
+    "countOne": "{count} nom",
+    "countMany": "{count} noms",
+    "import": "Importer",
+    "importAria": "Importer un fichier TXT ou CSV",
+    "clear": "Effacer",
+    "truncated": "Les noms de plus de 100 caractères ont été raccourcis.",
+    "overflow": "Seuls les 500 premiers noms sont conservés.",
+    "fileTooBig": "Le fichier dépasse 1 Mo.",
+    "fileError": "Impossible de lire ce fichier."
+  },
+  "spin": {
+    "action": "Tourner",
+    "spinning": "La roue tourne…",
+    "winnerLabel": "Résultat",
+    "announce": "Résultat : {name}",
+    "hint": "Espace ou Entrée lance la roue.",
+    "needNames": "Ajoutez au moins un nom.",
+    "failed": "Le tirage aléatoire est indisponible dans ce navigateur."
+  },
+  "options": {
+    "title": "Options",
+    "removeWinner": "Retirer le gagnant",
+    "duration": "Durée",
+    "durationValue": "{seconds} s",
+    "shuffle": "Mélanger",
+    "sound": "Son"
+  },
+  "lists": {
+    "title": "Listes",
+    "name": "Nom de la liste",
+    "save": "Enregistrer",
+    "choose": "Listes enregistrées",
+    "load": "Ouvrir",
+    "delete": "Supprimer",
+    "share": "Copier le lien",
+    "copied": "Lien copié.",
+    "copyFailed": "Impossible de copier le lien. Il est dans la barre d'adresse.",
+    "needName": "Donnez un nom à la liste.",
+    "needNames": "La liste est vide.",
+    "saved": "Liste enregistrée.",
+    "deleted": "Liste supprimée.",
+    "loaded": "Liste ouverte.",
+    "missing": "Choisissez une liste."
+  },
+  "history": {
+    "title": "Historique",
+    "empty": "Aucun tirage pour l'instant.",
+    "export": "Exporter en CSV"
+  },
+  "presentation": {
+    "enter": "Plein écran",
+    "exit": "Quitter"
+  },
+  "footer": {
+    "credit": "Un outil Dynamogic / A Dynamogic tool"
+  },
+  "wheel": {
+    "empty": "Ajoutez des noms"
+  }
+}

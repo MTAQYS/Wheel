@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Wheel",
+    "description": "Draw a name at random. The wheel runs in your browser, with no account and no data sent anywhere."
+  },
+  "header": {
+    "title": "Wheel",
+    "tagline": "A name, drawn in your browser."
+  },
+  "lang": {
+    "group": "Language",
+    "fr": "FR",
+    "en": "EN"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "names": {
+    "label": "Names",
+    "placeholder": "One name per line",
+    "hint": "TXT: one name per line. CSV: one column, or values separated by commas or semicolons.",
+    "countOne": "{count} name",
+    "countMany": "{count} names",
+    "import": "Import",
+    "importAria": "Import a TXT or CSV file",
+    "clear": "Clear",
+    "truncated": "Names longer than 100 characters were shortened.",
+    "overflow": "Only the first 500 names are kept.",
+    "fileTooBig": "That file is larger than 1 MB.",
+    "fileError": "That file could not be read."
+  },
+  "spin": {
+    "action": "Spin",
+    "spinning": "The wheel is spinning…",
+    "winnerLabel": "Result",
+    "announce": "Result: {name}",
+    "hint": "Press Space or Enter to spin.",
+    "needNames": "Add at least one name.",
+    "failed": "This browser cannot provide a secure random draw."
+  },
+  "options": {
+    "title": "Options",
+    "removeWinner": "Remove the winner",
+    "duration": "Duration",
+    "durationValue": "{seconds} s",
+    "shuffle": "Shuffle",
+    "sound": "Sound"
+  },
+  "lists": {
+    "title": "Lists",
+    "name": "List name",
+    "save": "Save",
+    "choose": "Saved lists",
+    "load": "Open",
+    "delete": "Delete",
+    "share": "Copy link",
+    "copied": "Link copied.",
+    "copyFailed": "The link could not be copied. It is in the address bar.",
+    "needName": "Name this list.",
+    "needNames": "The list is empty.",
+    "saved": "List saved.",
+    "deleted": "List deleted.",
+    "loaded": "List opened.",
+    "missing": "Choose a list."
+  },
+  "history": {
+    "title": "History",
+    "empty": "No draws yet.",
+    "export": "Export CSV"
+  },
+  "presentation": {
+    "enter": "Full screen",
+    "exit": "Exit"
+  },
+  "footer": {
+    "credit": "Un outil Dynamogic / A Dynamogic tool"
+  },
+  "wheel": {
+    "empty": "Add names"
+  }
+}
