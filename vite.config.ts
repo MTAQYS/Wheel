@@ -1,7 +1,25 @@
 import { defineConfig, type Plugin } from 'vitest/config';
+import { applySiteUrls } from './src/site';
 
 const STRICT_CSP =
   "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'none'";
+
+/** Bake absolute social URLs from `SITE_ORIGIN` in src/site.ts plus Vite's base. */
+function injectSiteUrl(): Plugin {
+  let base = '/Wheel/';
+  return {
+    name: 'inject-site-url',
+    configResolved(config) {
+      base = config.base;
+    },
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        return applySiteUrls(html, base);
+      },
+    },
+  };
+}
 
 /**
  * Vite's dev server needs eval and a websocket. The published page keeps the
@@ -27,7 +45,7 @@ function relaxCspInDev(): Plugin {
 
 export default defineConfig({
   base: process.env.VITE_BASE || '/Wheel/',
-  plugins: [relaxCspInDev()],
+  plugins: [injectSiteUrl(), relaxCspInDev()],
   build: {
     sourcemap: false,
   },

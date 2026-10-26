@@ -1,7 +1,10 @@
 {
   "meta": {
     "title": "Wheel",
-    "description": "Draw a name at random. The wheel runs in your browser, with no account and no data sent anywhere."
+    "description": "Draw a name at random. The wheel runs in your browser, with no account and no data sent anywhere.",
+    "imageAlt": "Wheel, a Dynamogic tool: a wheel for drawing a name at random.",
+    "locale": "en_US",
+    "localeAlternate": "fr_FR"
   },
   "header": {
     "title": "Wheel",

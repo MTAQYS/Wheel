@@ -1,7 +1,10 @@
 {
   "meta": {
     "title": "Roue",
-    "description": "Tirez un nom au sort. La roue tourne dans votre navigateur, sans compte et sans envoi de données."
+    "description": "Tirez un nom au sort. La roue tourne dans votre navigateur, sans compte et sans envoi de données.",
+    "imageAlt": "Roue, un outil Dynamogic : une roue pour tirer un nom au sort.",
+    "locale": "fr_FR",
+    "localeAlternate": "en_US"
   },
   "header": {
     "title": "Roue",
