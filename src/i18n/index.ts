@@ -36,3 +36,20 @@ export function translate(
     return value === undefined ? '' : String(value);
   });
 }
+
+/** Title, description, and Open Graph locale for the active language. */
+export function socialMeta(lang: Lang): {
+  title: string;
+  description: string;
+  imageAlt: string;
+  locale: string;
+  localeAlternate: string;
+} {
+  return {
+    title: translate(lang, 'meta.title'),
+    description: translate(lang, 'meta.description'),
+    imageAlt: translate(lang, 'meta.imageAlt'),
+    locale: translate(lang, 'meta.locale'),
+    localeAlternate: translate(lang, 'meta.localeAlternate'),
+  };
+}

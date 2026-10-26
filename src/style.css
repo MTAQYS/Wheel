@@ -1,64 +1,98 @@
-:root {
-  --bg: #f3f0e8;
-  --bg-elev: #faf8f4;
-  --ink: #1c1a17;
-  --muted: #5e5952;
-  --line: #d9d2c4;
-  --accent: #8f3418;
-  --accent-hover: #732912;
-  --on-accent: #fff7f3;
-  --seg-a: #1c1a17;
-  --seg-a-ink: #f6f1e8;
-  --seg-b: #8f3418;
-  --seg-b-ink: #fff6f1;
-  --seg-c: #e4dccb;
-  --seg-c-ink: #1c1a17;
-  --highlight: #f4efe4;
-  --sans: "Source Sans 3", "Segoe UI", sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
+/* Dynamogic tokens. Dark is the default; light is [data-theme="light"].
+   With no saved theme the page still follows the OS, so a light system
+   gets the light set. */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --dg-bg: #0e0f11;
+  --dg-surface: #16181b;
+  --dg-surface-raised: #1c1e22;
+  --dg-border: #26292e;
+  --dg-border-strong: #3a3e44;
+  --dg-text-primary: #eceae5;
+  --dg-text-secondary: #a9a59e;
+  --dg-text-tertiary: #85817a;
+  --dg-accent: #d4925f;
+  --dg-accent-hover: #e2a877;
+  --dg-accent-subtle: #2b1f17;
+  --dg-on-accent: #0e0f11;
+  --dg-focus-ring: rgba(212, 146, 95, 0.45);
+  --seg-a: #eceae5;
+  --seg-a-ink: #16171a;
+  --seg-b: #d4925f;
+  --seg-b-ink: #0e0f11;
+  --seg-c: #3a3e44;
+  --seg-c-ink: #eceae5;
+  --highlight: #e2a877;
+}
+
+[data-theme='light'] {
   color-scheme: light;
+  --dg-bg: #f5f3ee;
+  --dg-surface: #fbfaf7;
+  --dg-surface-raised: #efece6;
+  --dg-border: #e2ded5;
+  --dg-border-strong: #cbc6bb;
+  --dg-text-primary: #16171a;
+  --dg-text-secondary: #55524c;
+  --dg-text-tertiary: #6f6b64;
+  --dg-accent: #9c5428;
+  --dg-accent-hover: #83441d;
+  --dg-accent-subtle: #f1e6dc;
+  --dg-on-accent: #fbfaf7;
+  --dg-focus-ring: rgba(156, 84, 40, 0.35);
+  --seg-a: #16171a;
+  --seg-a-ink: #f5f3ee;
+  --seg-b: #9c5428;
+  --seg-b-ink: #fbfaf7;
+  --seg-c: #e2ded5;
+  --seg-c-ink: #16171a;
+  --highlight: #83441d;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    color-scheme: light;
+    --dg-bg: #f5f3ee;
+    --dg-surface: #fbfaf7;
+    --dg-surface-raised: #efece6;
+    --dg-border: #e2ded5;
+    --dg-border-strong: #cbc6bb;
+    --dg-text-primary: #16171a;
+    --dg-text-secondary: #55524c;
+    --dg-text-tertiary: #6f6b64;
+    --dg-accent: #9c5428;
+    --dg-accent-hover: #83441d;
+    --dg-accent-subtle: #f1e6dc;
+    --dg-on-accent: #fbfaf7;
+    --dg-focus-ring: rgba(156, 84, 40, 0.35);
+    --seg-a: #16171a;
+    --seg-a-ink: #f5f3ee;
+    --seg-b: #9c5428;
+    --seg-b-ink: #fbfaf7;
+    --seg-c: #e2ded5;
+    --seg-c-ink: #16171a;
+    --highlight: #83441d;
+  }
+}
+
+:root {
+  --dg-font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --dg-font-text: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --dg-font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --dg-radius-sm: 4px;
+  --bg: var(--dg-bg);
+  --bg-elev: var(--dg-surface);
+  --ink: var(--dg-text-primary);
+  --muted: var(--dg-text-secondary);
+  --line: var(--dg-border);
+  --accent: var(--dg-accent);
+  --accent-hover: var(--dg-accent-hover);
+  --on-accent: var(--dg-on-accent);
+  --sans: var(--dg-font-text);
+  --serif: var(--dg-font-display);
   background: var(--bg);
   color: var(--ink);
-}
-
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #141311;
-  --bg-elev: #1d1b18;
-  --ink: #f3efe6;
-  --muted: #b3aa9e;
-  --line: #3a342c;
-  --accent: #e48955;
-  --accent-hover: #f0a276;
-  --on-accent: #1c100c;
-  --seg-a: #f0eadf;
-  --seg-a-ink: #1a1814;
-  --seg-b: #d86a38;
-  --seg-b-ink: #1a100c;
-  --seg-c: #2a2622;
-  --seg-c-ink: #f0eadf;
-  --highlight: #f3efe6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    color-scheme: dark;
-    --bg: #141311;
-    --bg-elev: #1d1b18;
-    --ink: #f3efe6;
-    --muted: #b3aa9e;
-    --line: #3a342c;
-    --accent: #e48955;
-    --accent-hover: #f0a276;
-    --on-accent: #1c100c;
-    --seg-a: #f0eadf;
-    --seg-a-ink: #1a1814;
-    --seg-b: #d86a38;
-    --seg-b-ink: #1a100c;
-    --seg-c: #2a2622;
-    --seg-c-ink: #f0eadf;
-    --highlight: #f3efe6;
-  }
 }
 
 * {
@@ -73,11 +107,12 @@ body {
 
 body {
   font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.45;
+  font-size: 15px;
+  line-height: 1.6;
   background: var(--bg);
   color: var(--ink);
-  border-top: 6px solid var(--accent);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 button,
@@ -89,7 +124,7 @@ select {
 }
 
 button {
-  border-radius: 0;
+  border-radius: var(--dg-radius-sm);
   cursor: pointer;
 }
 
@@ -100,6 +135,14 @@ button:disabled {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+textarea:focus-visible,
+input[type='text']:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--dg-focus-ring);
 }
 
 ::selection {
@@ -136,10 +179,10 @@ button:disabled {
 h1 {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(2.6rem, 5vw, 3.4rem);
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .tagline {
@@ -157,13 +200,19 @@ h1 {
 
 .seg {
   display: inline-flex;
-  border: 1px solid var(--line);
+  border: 1px solid var(--dg-border-strong);
+  border-radius: var(--dg-radius-sm);
+  overflow: hidden;
 }
 
 .seg button {
   background: transparent;
   border: 0;
+  border-radius: 0;
   color: var(--muted);
+  font-family: var(--dg-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
   min-width: 44px;
   min-height: 40px;
   padding: 6px 10px;
@@ -197,9 +246,9 @@ h1 {
   min-height: 1.15em;
   margin: 8px 0 18px;
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(2rem, 4vw, 3.15rem);
-  line-height: 1.12;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   text-align: center;
   overflow-wrap: anywhere;
@@ -226,7 +275,11 @@ h1 {
   min-height: 44px;
   padding: 8px 14px;
   background: transparent;
-  border: 1px solid var(--line);
+  border: 1px solid var(--dg-border-strong);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 .primary {
@@ -234,9 +287,7 @@ h1 {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--on-accent);
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-size: 16px;
 }
 
 .primary:hover:not(:disabled) {
@@ -265,7 +316,8 @@ h1 {
 
 .ghost:hover:not(:disabled),
 .quiet:hover:not(:disabled) {
-  border-color: var(--ink);
+  background: var(--dg-surface-raised);
+  border-color: var(--dg-border-strong);
 }
 
 .block {
@@ -288,9 +340,11 @@ h1 {
 
 h2 {
   margin: 0;
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .label-row {
@@ -302,6 +356,8 @@ h2 {
 
 .count {
   color: var(--muted);
+  font-family: var(--dg-font-mono);
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -309,8 +365,9 @@ textarea,
 input[type='text'],
 select {
   width: 100%;
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
+  background: var(--bg);
+  border: 1px solid var(--dg-border-strong);
+  border-radius: var(--dg-radius-sm);
   padding: 10px 12px;
 }
 
@@ -325,7 +382,8 @@ textarea {
 .status {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .note:empty,
@@ -369,6 +427,8 @@ textarea {
 
 .duration output {
   color: var(--muted);
+  font-family: var(--dg-font-mono);
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -397,6 +457,8 @@ input[type='range'] {
 .history time {
   flex: none;
   color: var(--muted);
+  font-family: var(--dg-font-mono);
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -404,12 +466,22 @@ input[type='range'] {
   margin-top: 48px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
-  font-size: 0.9rem;
+  font-size: 13px;
 }
 
 .footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: var(--muted);
   text-underline-offset: 3px;
+}
+
+.mark {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: none;
 }
 
 .footer a:hover {

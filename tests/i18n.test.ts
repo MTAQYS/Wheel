@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import en from '../src/i18n/en.json';
 import fr from '../src/i18n/fr.json';
-import { translate } from '../src/i18n';
+import { socialMeta, translate } from '../src/i18n';
 
 function keys(value: unknown, prefix = ''): string[] {
   if (typeof value !== 'object' || value === null || Array.isArray(value)) {
@@ -22,5 +22,22 @@ describe('translations', () => {
     expect(en.footer.credit).toBe('Un outil Dynamogic / A Dynamogic tool');
     expect(translate('fr', 'names.countMany', { count: 12 })).toBe('12 noms');
     expect(translate('en', 'names.countOne', { count: 1 })).toBe('1 name');
+  });
+
+  it('switches the document title, description, and social locale', () => {
+    expect(socialMeta('fr')).toEqual({
+      title: 'Roue',
+      description: fr.meta.description,
+      imageAlt: fr.meta.imageAlt,
+      locale: 'fr_FR',
+      localeAlternate: 'en_US',
+    });
+    expect(socialMeta('en')).toEqual({
+      title: 'Wheel',
+      description: en.meta.description,
+      imageAlt: en.meta.imageAlt,
+      locale: 'en_US',
+      localeAlternate: 'fr_FR',
+    });
   });
 });

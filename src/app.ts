@@ -16,7 +16,8 @@ import {
 } from './lib/storage';
 import { rememberDraw } from './lib/history';
 import { decodeNamesHash, encodeNamesHash } from './lib/urlhash';
-import { translate, type Lang } from './i18n';
+import { socialMeta, translate, type Lang } from './i18n';
+import { DYNAMOGIC_URL } from './site';
 import { readPalette, WheelView } from './lib/wheel';
 
 interface Ui {
@@ -61,6 +62,7 @@ interface Ui {
   exportButton: HTMLButtonElement;
   status: HTMLParagraphElement;
   footerLink: HTMLAnchorElement;
+  footerCredit: HTMLElement;
   stageLabel: HTMLElement;
 }
 
@@ -183,7 +185,16 @@ function buildUi(root: HTMLElement): Ui {
   layout.append(stage, panel);
 
   const footer = el('footer', { class: 'footer' });
-  const footerLink = el('a', { href: 'https://mtaqys.github.io/' });
+  const footerLink = el('a', { href: DYNAMOGIC_URL });
+  const footerMark = el('img', {
+    class: 'mark',
+    src: `${import.meta.env.BASE_URL}mark.svg`,
+    alt: '',
+    width: '24',
+    height: '24',
+  });
+  const footerCredit = el('span');
+  footerLink.append(footerMark, footerCredit);
   footer.append(footerLink);
 
   const liveWinner = el('p', {
@@ -238,8 +249,14 @@ function buildUi(root: HTMLElement): Ui {
     exportButton,
     status,
     footerLink,
+    footerCredit,
     stageLabel,
   };
+}
+
+function setMeta(selector: string, content: string): void {
+  const node = document.head.querySelector(selector);
+  if (node) node.setAttribute('content', content);
 }
 
 function blocksSpinShortcut(target: EventTarget | null): boolean {
@@ -393,10 +410,18 @@ export function mountApp(root: HTMLElement): void {
 
   function applyLanguage(): void {
     const lang: Lang = state.settings.lang;
+    const meta = socialMeta(lang);
     document.documentElement.lang = lang;
-    document.title = t('meta.title');
-    const description = document.querySelector('meta[name="description"]');
-    if (description) description.setAttribute('content', t('meta.description'));
+    document.title = meta.title;
+    setMeta('meta[name="description"]', meta.description);
+    setMeta('meta[property="og:title"]', meta.title);
+    setMeta('meta[property="og:description"]', meta.description);
+    setMeta('meta[property="og:locale"]', meta.locale);
+    setMeta('meta[property="og:locale:alternate"]', meta.localeAlternate);
+    setMeta('meta[property="og:image:alt"]', meta.imageAlt);
+    setMeta('meta[name="twitter:title"]', meta.title);
+    setMeta('meta[name="twitter:description"]', meta.description);
+    setMeta('meta[name="twitter:image:alt"]', meta.imageAlt);
     ui.title.textContent = t('header.title');
     ui.tagline.textContent = t('header.tagline');
     ui.langGroup.setAttribute('aria-label', t('lang.group'));
@@ -431,7 +456,7 @@ export function mountApp(root: HTMLElement): void {
     ui.shareButton.textContent = t('lists.share');
     ui.historyTitle.textContent = t('history.title');
     ui.exportButton.textContent = t('history.export');
-    ui.footerLink.textContent = t('footer.credit');
+    ui.footerCredit.textContent = t('footer.credit');
     updateDurationLabel();
     updateCount(currentNames().length);
     wheel.setEmptyLabel(t('wheel.empty'));

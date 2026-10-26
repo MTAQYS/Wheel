@@ -44,6 +44,8 @@ Saved lists stay in this browser. **Copy link** puts the current list in the add
 
 Pushing to `main` runs [`.github/workflows/pages.yml`](.github/workflows/pages.yml), which publishes `dist/` to GitHub Pages with `VITE_BASE=/Wheel/`. The site is [https://mtaqys.github.io/Wheel/](https://mtaqys.github.io/Wheel/).
 
+Open Graph and Twitter URLs are `SITE_ORIGIN` in [`src/site.ts`](src/site.ts) joined to that base path. It is `https://mtaqys.github.io` today. Change `SITE_ORIGIN` when the tool moves to dynamogic.com. The footer credit links to https://dynamogic.com/.
+
 Pages has to use **GitHub Actions** as its source (Settings → Pages → Build and deployment). Enabling that needs permission to change the repository settings.
 
 Every push also runs lint, tests, and the production build.
